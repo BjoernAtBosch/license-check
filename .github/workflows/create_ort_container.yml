@@ -11,5 +11,9 @@ jobs:
       with:
          repository: oss-review-toolkit/ort
          ref: main
+    - uses: actions/query-tag-action@v2
+      with:
+         abbrev: 10
+         commit-ish: --always
     - name: Show
       run: docker images && ls -al 
