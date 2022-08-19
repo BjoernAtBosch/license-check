@@ -10,7 +10,6 @@ jobs:
     - uses: actions/checkout@v3
       with:
          name: oss-review-toolkit/ort
-    - name: Build ORT Container
-      run: DOCKER_BUILDKIT=1 docker build -t ort github.com/oss-review-toolkit/ort#main
+         ref: refs/heads/main
     - name: Show
       run: docker images && ls -al 
