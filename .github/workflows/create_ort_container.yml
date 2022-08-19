@@ -16,6 +16,13 @@ jobs:
         abbrev: 10
         commit-ish: --always
       id: gittag
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - run: DOCKER_BUILDKIT=1 docker build -t ort -t ort:${{steps.gittag.outputs.tag}} --build-arg ORT_VERSION=${{steps.gittag.outputs.tag}} .
     - name: Show
       run: docker images && ls -al 
+
