@@ -9,10 +9,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-         repository: oss-review-toolkit/ort
-         ref: main
+        repository: oss-review-toolkit/ort
+        ref: main
     - uses: jimschubert/query-tag-action@v2
       with:
-         abbrev: 10
+        abbrev: 10
+        commit-ish: --always
+      id: gittag
+    - run: DOCKER_BUILDKIT=1 docker build -t ort -t ort:${{steps.gittag.outputs.tag}} --build-arg ORT_VERSION=${{steps.gittag.outputs.tag}} .
     - name: Show
       run: docker images && ls -al 
