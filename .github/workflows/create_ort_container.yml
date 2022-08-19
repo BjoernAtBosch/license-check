@@ -1,0 +1,13 @@
+name: Create ORT Container
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Build ORT Container
+      run: DOCKER_BUILDKIT=1 docker build -t ort https://github.com/oss-review-toolkit/ort
+    - name: Show
+      run: docker images && ls -al
