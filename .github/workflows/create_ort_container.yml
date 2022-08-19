@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-         name: oss-review-toolkit/ort
-         ref: refs/heads/main
+         repository: oss-review-toolkit/ort
+         ref: main
     - name: Show
       run: docker images && ls -al 
