@@ -14,6 +14,5 @@ jobs:
     - uses: jimschubert/query-tag-action@v2
       with:
          abbrev: 10
-         commit-ish: '--always'
     - name: Show
       run: docker images && ls -al 
