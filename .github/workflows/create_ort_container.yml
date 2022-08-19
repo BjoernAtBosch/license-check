@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: Build ORT Container
-      run: DOCKER_BUILDKIT=1 docker build -t ort github.com/oss-review-toolkit/ort@main
+      run: DOCKER_BUILDKIT=1 docker build -t ort github.com/oss-review-toolkit/ort#main
     - name: Show
       run: docker images && ls -al
